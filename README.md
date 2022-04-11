@@ -4,8 +4,8 @@
 
 #### Destructuracón
 #### Promesas
-#### stdin - stdout - readline
-#### inquirer
-#### uuid
+#### stdin - stdout - readline (app en consola)
+#### inquirer (interacción menu consola)
+#### uuid     (crear código id universal)
 #### package.json
 #### clases
