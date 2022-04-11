@@ -2,8 +2,18 @@ const Tarea = require("./Tarea");
 
 class Tareas{
 
+    
     _listado={};
 
+    //Creamos el OBJETO _listado que contiene las tareas
+    //Recibo el arreglo que leo en db/data.json 
+    cargarTareasFromArray(tareas){   
+        tareas.forEach(element => {
+            this._listado[element.id]=element;
+        });  
+    }
+    
+    //Es el mismo _listado pero ahora es un arreglo
     get listadoArr(){
         const listado=[];
 
@@ -20,23 +30,21 @@ class Tareas{
         this._listado={};
     }
 
+    //Borramos tarea del objeto
     borrarTarea(id){
         if (this._listado[id]){
             delete this._listado[id];
         }
     }
 
-    cargarTareasFromArray(tareas){   
-        tareas.forEach(element => {
-            this._listado[element.id]=element;
-        });  
-    }
-
+    
+    //Creamos tarea nueva con el mensaje escrito en consola
     crearTarea(desc){
         const tarea= new Tarea(desc);
         this._listado[tarea.id]=tarea;
     }
 
+    //Lista de todas las tareas, recorro todo el arreglo listadoArr
     listadoCompleto(){
         /*let i=1;
         let cadena='';
@@ -68,6 +76,7 @@ class Tareas{
 
     }
 
+    //Lista tareas Completadas, recorro todo el arreglo listadoArr
     listaTareasCompletas(){
         let cadena='';
         let i=1;
@@ -82,6 +91,7 @@ class Tareas{
         return cadena;   
     }
 
+    //Lista tareas Pendientes, recorro todo el arreglo listadoArr
     listaTareasPendientes(){
         let cadena='';
         let i=1;
@@ -97,6 +107,8 @@ class Tareas{
         return cadena;   
     }
 
+    //No se usa
+    /*
     completarTarea(){
         let cadena='';
         this.listadoArr.forEach((tarea,i)=>{
@@ -107,8 +119,10 @@ class Tareas{
                             : cadena+=`${idx} ${desc}\n`;                                    
         });
         return cadena;   
-    }
+    }*/
 
+    //Recibo los Ids de las tareas que selecciono completadas
+    //eso se hace por medio de inquierer
     toggleCompletadas(ids){
 
         //Tareas completadas

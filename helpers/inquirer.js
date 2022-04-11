@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 require('colors');
 
+//Preguntas que deseamos hacer
 const preguntas=[
     {
         type: 'list',
@@ -27,10 +28,7 @@ const preguntas=[
     }
 ];
 
-
-
-
-
+//Desplegamos menu, con teclado seleccionamos la opción que queremos
 const inquirerMenu = async() =>{
 
     console.log('=================================='.blue);
@@ -42,6 +40,7 @@ const inquirerMenu = async() =>{
     return opcion;
 }
 
+//Hacemos pausa para esperar un enter
 const pausa=async() =>{
     const question =[
         {
@@ -54,7 +53,7 @@ const pausa=async() =>{
     console.clear();
 }
 
-
+//Leemos el mensaje de consola (descripción nueva tarea)
 const leerInput=async(message)=>{
     const question=[
         {
@@ -75,6 +74,8 @@ const leerInput=async(message)=>{
 
 }
 
+//Listamos todas las tareas, podemos escoger una opción 
+//retornamos los ids de las opciones seleccionadas.
 const listadoTareasBorrar=async(tareas)=>{
     
     const choices = tareas.map((tarea,i)=>{
@@ -109,6 +110,7 @@ const listadoTareasBorrar=async(tareas)=>{
     return id;
 }
 
+//Hacemos pregunta boolean para saber si borramos el archivo
 const confirmar = async(message)  => {
     const question=[
         {
@@ -122,6 +124,8 @@ const confirmar = async(message)  => {
     return ok;
 }
 
+//Listo todas las tareas. Opciones multiples, se retorna los IDS
+//de las opciones selccionadas.
 const mostrarListadoCheckList=async(tareas)=>{
     
     const choices = tareas.map((tarea,i)=>{

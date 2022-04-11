@@ -1,10 +1,10 @@
 require('colors');
 
 const mostrarMenu= ()=>{
+    // NO usamos esta función, usamos el menú de inquirer
     console.clear();
 
     return new Promise(resolve =>{
-
         console.log('=================================='.blue);
         console.log('  Seleccione una opción'.blue);
         console.log('=================================='.blue);
@@ -28,8 +28,9 @@ const mostrarMenu= ()=>{
         });
     });
 }
-const pausa=()=>{
 
+const pausa=()=>{
+    //Pausmamos la consola hasta que haya un enter
     return new Promise(resolve =>{
         const readline=require('readline').createInterface({
             input:process.stdin,
