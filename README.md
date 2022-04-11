@@ -9,3 +9,11 @@
 #### uuid     (crear código id universal)
 #### package.json
 #### clases
+
+
+## Instalar :
+
+### npm install
+### npm install inquirer
+### npm install uuid  
+### npm install colors  
